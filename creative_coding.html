@@ -5,54 +5,24 @@
 		<link rel="stylesheet" href="css\content_style.css">
 		<body>
 			<div class="nav_bar">
-				<a href="nav.html" style="position:absolute;display:block;height:100%;width:100%;"></a>
+				<a href="index.html" style="position:absolute;display:block;height:100%;width:100%;" ></a>
 				<div class="nav_icons">
-					<a href="illustrations.html">
-						<div class="square"></div>
+					<a href="illustration.html">
+						<img src="images\icons\illustration_and_sketches_icon.jpg" class="navigation_button current"></img>
 					</a>
 					<a href="graphic_designs.html">
-						<div class="triangle_up"></div>
+						<img src="images\icons\graphic_design.jpg" class="navigation_button"></img>
 					</a>
 					<a href="creative_coding.html">
-						<div class="circle" style="background-color:#a6e6ff;"></div>
+						<img src="images\icons\creative_coding.jpg" class="navigation_button"></img>
 					</a>
 				</div>
 			</div>
 			<h1>Creative Coding</h1>
-			<div class="container">
-				<iframe src="shades_of_rationality.html" class="generative_design" alt="Shades of Rationality"></iframe>
-				<div class="info">
-					<div class="title">
-						<h3>Shades of Rationality</h3>
-					</div>
-					<div class="description">
-						<p>Squares generated in random arrangements.</p>
-					</div>
-					<div class="tools">
-						<i>JavaScript.</i>
-					</div>
-					<div class="year">
-						<h4>2021</h4>
-					</div>
-				</div>
-			</div>
-			<div class="container">
-				<img src="images\perlin_noise.png" alt="Perlin Strings"></iframe>
-				<div class="info">
-					<div class="title">
-						<h3>Perlin Strings</h3>
-					</div>
-					<div class="description">
-						<p>Strings generated using an implementation of Perlin Noise.</p>
-					</div>
-					<div class="tools">
-						<i>JavaScript.</i>
-					</div>
-					<div class="year">
-						<h4>2021</h4>
-					</div>
-				</div>
-			</div>
+			<div class="gallery">
+			<img src="images\perlin_noise.png" class="gallery_image" alt="Perlin Noise Render" data-title="Perlin Noise" data-info="An attempt at randomness with local coherency." data-year="2021">
+			<img src="images\shades_of_rationality.jpg" class="gallery_image" data-title="Shades of Rationality" data-info="Generative design." data-year="2021">
+		</div>
 		</body>
 	</head>
 </html>
