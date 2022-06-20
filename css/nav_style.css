@@ -1,0 +1,132 @@
+html, body, h1, h3 {
+	height: 100%;
+	margin: 0;
+	font-family: "Roboto", sans-serif;
+	font-weight: 200;
+	color: black;
+	overflow: hidden;
+}
+
+h1 {
+	padding-bottom: 0.5vh;
+}
+
+a:link{
+	text-decoration: none;
+}
+
+a:visited {
+  color: black;
+}
+	
+nav {
+	margin-top: 5vh;
+	width: 50vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 80%;
+}
+
+.token {
+	margin: 1vh 2vw 1vh 2vw;
+	height: 10vh;
+	max-width: 10vh;
+	transition:transform 0.25s ease;
+}
+
+.token img {
+	height: 10vh;
+}
+
+.token .description {
+	text-align: center;
+	padding: 1vh 0 0 0;
+	font-size: 2vh;
+	opacity: 0;
+	transition-duration: 0.2s;
+}
+
+.token:hover{
+	-webkit-transform:scale(1.02); /* or some other value */
+    transform:scale(1.02);
+	cursor: pointer;
+	filter: drop-shadow(4px 4px 6px gray)
+}
+
+.token:hover .description{
+	opacity: 100;
+}
+
+.about_box{
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	margin-bottom: 5vh;
+}
+
+.about_box div{
+	padding: 1vh 1vw 1vh 1vw;
+}
+
+.link_container a{
+	margin: 1vh 2vw 0 2vw;
+}
+
+.link_container #twitter a img{
+	height: 4.5vh;
+}
+
+.link_container img{
+	padding-top: 1vh;
+	height: 5vh;
+}
+
+#twitter{
+	height: 4.5vh;
+	padding-bottom: 0.25vh;
+}
+
+#artstation{
+	height: 4.5vh;
+	padding-bottom: 0.25vh;
+}
+
+@media only screen and (max-width: 1000px) {
+	nav {
+		flex-direction: column;
+		margin-top: 0;
+	}
+
+	.token{
+		min-height: 50px;
+		min-width: 200px;
+		text-align: center;
+		margin: max(3vh, 30px) 2vw max(3vh, 30px) 2vw;
+	}
+	
+	.token img{
+		min-height: 75px;
+	}
+	
+	.token .description{
+		transition-duration: 0s;
+		opacity: 100;
+		font-size: 20px;
+	}
+	
+	h1{
+		font-size: clamp(15px, 7vw, 30px);
+	}
+	
+	h3{
+		font-size: clamp(12px, 4vw, 18px);
+	}
+	
+	.link_container a{
+		margin: 1vh 4vw 0 4vw;
+	}
+	
+}

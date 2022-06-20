@@ -1,0 +1,8 @@
+TODO:
+
+1. Add description to cards.
+2. Update navigation Bar
+3. Fill in the rest of the content.
+4. Update all art to the newest versions.
+5. Fix illustrations.
+6. 
