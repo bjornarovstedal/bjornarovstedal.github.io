@@ -1,70 +1,21 @@
-/*const lightbox = document.createElement('div');
-lightbox.id = 'lightbox';
-document.body.appendChild(lightbox);
-
-function resetScrollPos(selector) {
-  var divs = document.querySelectorAll(selector);
-  for (var p = 0; p < divs.length; p++) {
-    if (Boolean(divs[p].style.transform)) { //for IE(10) and firefox
-      divs[p].style.transform = 'translate3d(0px, 0px, 0px)';
-    } else { //for chrome and safari
-      divs[p].style['-webkit-transform'] = 'translate3d(0px, 0px, 0px)';
-    }
-  }
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const images = document.querySelectorAll('img');
-images.forEach(image => {
-	image.addEventListener('click', e => {
-		lightbox.classList.add('active');
-		const container = document.createElement('div');
-		container.classList.add('container');
-		const img = document.createElement('img');
-		const information = document.createElement('div');
-		information.classList.add('information');
-		img.src = image.src;
-		while (lightbox.firstChild){
-			lightbox.removeChild(lightbox.firstChild);
-			container.scrollTop = 0;
-			lightbox.scrollTop = 0;
-		}
-		lightbox.appendChild(container);
-		container.appendChild(img);
-		
-		const title = document.createElement('div');
-		title.append(image.dataset.title);
-		title.classList.add('title');
-		information.append(title);
-		
-		console.log(image.dataset.link);
-		if(image.dataset.link != undefined){
-			const link = document.createElement('a');
-			link.appendChild(document.createTextNode(image.dataset.link));
-			link.href = image.dataset.link;
-			link.classList.add('link');
-			
-			information.append(link);
-		}
-
-		const info = document.createElement('div');
-		info.append(image.dataset.info);
-		info.classList.add('info');
-		information.append(info);
-		
-		const year = document.createElement('div');
-		year.append(image.dataset.year);
-		year.classList.add('year');
-		information.append(year);
-		
-		container.appendChild(information);
-	})
-});
-
-lightbox.addEventListener('click', e => {
-	if (e.target !== e.currentTarget) return;
-	lightbox.classList.remove('active');
+window.onload = async function(){
 	
-});*/
+	const images = Array.from(document.getElementsByClassName("main_gallery_image"));
+	for(var i = 0; i < images.length; i++) {
+		images[i].addEventListener("onload", fadeIn(images[i]))
+		await sleep(50);
+	}
+}
+
+function fadeIn(image){
+	image.style.transition = "transform 0.25s ease, opacity 1s";
+	image.style.opacity = "1";
+	sleep(500);
+}
 
 const lightbox = document.createElement('div');
 lightbox.id = 'lightbox';
@@ -81,12 +32,36 @@ function resetScrollPos(selector) {
   }
 }
 
+var current_index = 0;
+
+
+function determine_content(data){
+	var type = "";
+	if(data == "1"){
+		type = "div";
+	}
+	else{
+		type = "img";
+	}
+	return(type);
+}
+
 const gallery_items = document.getElementsByClassName('gallery_item');
+const image_info = [];
 var gallery_images = [];
 for (i=0;i<gallery_items.length;i++){
 	image = gallery_items[i].getElementsByClassName('main_gallery_image')[0];
 	
-	const img = document.createElement('img');
+	var content_type = determine_content(image.dataset.iframe)
+	const img = document.createElement(content_type);
+	if (content_type == "div"){
+		img.classList.add("iframe_wrapper");
+		var iframe = document.createElement("iframe");
+		iframe.src = image.src;
+		img.appendChild(iframe);
+	}
+	
+	img.classList.add('main_image');
 	img.src = image.src;
 	
 	const supplementary_images = gallery_items[i].getElementsByClassName('gallery_image');
@@ -97,7 +72,6 @@ for (i=0;i<gallery_items.length;i++){
 		supp_images.push(supp_img);
 	};
 	
-	console.log(supp_images);
 	const title = document.createElement('div');
 	title.append(image.dataset.title);
 	
@@ -115,7 +89,13 @@ for (i=0;i<gallery_items.length;i++){
 	}
 	
 	image.addEventListener('click', e => {
-		console.log(gallery_images);
+		openLightbox(image, img, supp_images, title, info, year, link);
+	})
+	
+	image_info.push([image, img, supp_images, title, info, year, link]);
+};
+
+function openLightbox(image, img, supp_images, title, info, year, link){
 		lightbox.classList.add('active');
 		
 		const container = document.createElement('div');
@@ -155,11 +135,15 @@ for (i=0;i<gallery_items.length;i++){
 		information.append(year);
 		
 		container.appendChild(information);
-	})
-};
+}
 
 lightbox.addEventListener('click', e => {
 	if (e.target !== e.currentTarget) return;
 	lightbox.classList.remove('active');
-	
+});
+
+document.addEventListener('keydown', function(event) {
+	if (event.keyCode === 39){
+		lightbox.classList.remove('active');
+	}
 });
