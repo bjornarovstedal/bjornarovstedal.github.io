@@ -30,7 +30,7 @@ nav {
 }
 
 .token {
-	margin: 1vh 2vw 1vh 2vw;
+	margin: 1vh min(2vw, 300px) 1vh min(2vw, 300px);
 	height: 10vh;
 	max-width: 10vh;
 	transition:transform 0.25s ease;
@@ -94,14 +94,19 @@ nav {
 	padding-bottom: 0.25vh;
 }
 
-@media only screen and (max-width: 1000px) {
+#logo{
+	height: 5vh;
+	margin-bottom: 1vh;
+}
+
+@media only screen and (max-width: 800px) {
 	nav {
 		flex-direction: column;
 		margin-top: 0;
 	}
 
 	.token{
-		min-height: 50px;
+		min-height: 7vh;
 		min-width: 200px;
 		text-align: center;
 		margin: max(3vh, 30px) 2vw max(3vh, 30px) 2vw;
@@ -111,6 +116,10 @@ nav {
 		min-height: 75px;
 	}
 	
+	#logo{
+		min-height: 50px;
+	}
+		
 	.token .description{
 		transition-duration: 0s;
 		opacity: 100;
