@@ -165,6 +165,7 @@ h1{
 
 .main_image{
 	max-height: 90vh;
+	object-fit: contain;
 }
 
 #lightbox .container .image_container > *:not(:last-child) {
