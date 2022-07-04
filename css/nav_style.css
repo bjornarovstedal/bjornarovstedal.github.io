@@ -99,7 +99,7 @@ nav {
 	margin-bottom: 1vh;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
 	nav {
 		flex-direction: column;
 		margin-top: 0;
@@ -113,11 +113,11 @@ nav {
 	}
 	
 	.token img{
-		min-height: 75px;
+		min-height: 50px;
 	}
 	
 	#logo{
-		min-height: 50px;
+		min-height: 25px;
 	}
 		
 	.token .description{
