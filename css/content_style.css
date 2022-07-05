@@ -242,6 +242,7 @@ h1{
 		width: inherit;
 		max-width: unset;
 		height: auto;
+		object-fit: contain;
 	}
 	
 	.main_image{
