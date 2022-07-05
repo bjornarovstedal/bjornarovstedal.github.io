@@ -102,7 +102,7 @@ nav {
 @media only screen and (max-width: 600px) {
 	nav {
 		flex-direction: column;
-		margin-top: 0;
+		margin-top: -5vh;
 	}
 
 	.token{
