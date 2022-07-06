@@ -117,7 +117,7 @@ function openLightbox(image, img, supp_images, title, info, year, link){
 		image_container.appendChild(img);
 		
 		for(k=0;k<supp_images.length;k++){
-			image_container.appendChild(supp_images[k]);
+			//image_container.appendChild(supp_images[k]);
 		}
 		
 		container.appendChild(image_container);
