@@ -235,9 +235,15 @@ h1{
 	}
 	
 	#lightbox .container .image_container {
+		height: auto;
+		width: unset;
 	}
 	
 	#lightbox .container .image_container img {
+		width: inherit;
+		max-width: unset;
+		height: auto;
+		align-items: flex-start;
 	}
 	
 	.main_image{
