@@ -235,7 +235,6 @@ h1{
 	}
 	
 	#lightbox .container .image_container {
-		max-width: unset;
 	}
 	
 	#lightbox .container .image_container img {
