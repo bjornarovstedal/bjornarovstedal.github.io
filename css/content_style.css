@@ -259,9 +259,9 @@ h1{
 	
 	#lightbox .container .image_container img {
 		width: inherit;
-		max-width: unset;
+		max-width: 95vw;
 		height: auto !important;
-		max-height: 60vh;
+		max-height: 85vh;
 		align-items: flex-start;
 		align-self: center;
 	}
